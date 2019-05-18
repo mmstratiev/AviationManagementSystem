@@ -14,6 +14,16 @@ DlgAddPlane::~DlgAddPlane()
     delete ui;
 }
 
+QSharedPointer<Plane> DlgAddPlane::GetPlaneObj()
+{
+    QSharedPointer<Plane> result(new Plane());
+
+    result->setID(ui->PlaneIDEdit->text());
+//    result->setPlaneType();
+
+    return result;
+}
+
 void DlgAddPlane::on_NewClassBtn_clicked()
 {
     DlgCreatePlaneClass dlgCreatePlaneClass(this);

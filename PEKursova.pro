@@ -25,8 +25,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        datamanager.cpp \
         destination.cpp \
         dlgaddplane.cpp \
+        dlgcreatedestination.cpp \
         dlgcreateplaneclass.cpp \
         dlgfindplanes.cpp \
         main.cpp \
@@ -35,8 +37,10 @@ SOURCES += \
         planeclass.cpp
 
 HEADERS += \
+        datamanager.h \
         destination.h \
         dlgaddplane.h \
+        dlgcreatedestination.h \
         dlgcreateplaneclass.h \
         dlgfindplanes.h \
         mainwindow.h \
@@ -45,6 +49,7 @@ HEADERS += \
 
 FORMS += \
         dlgaddplane.ui \
+        dlgcreatedestination.ui \
         dlgcreateplaneclass.ui \
         dlgfindplanes.ui \
         mainwindow.ui

@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "plane.h"
+
 namespace Ui {
 class DlgAddPlane;
 }
@@ -15,6 +17,7 @@ public:
     explicit DlgAddPlane(QWidget *parent = nullptr);
     ~DlgAddPlane();
 
+    QSharedPointer<Plane> GetPlaneObj();
 private slots:
     void on_NewClassBtn_clicked();
 

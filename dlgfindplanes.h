@@ -15,6 +15,9 @@ public:
     explicit DlgFindPlanes(QWidget *parent = nullptr);
     ~DlgFindPlanes();
 
+private slots:
+    void on_NewDestinationBtn_clicked();
+
 private:
     Ui::DlgFindPlanes *ui;
 };

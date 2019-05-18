@@ -4,6 +4,8 @@
 #include "dlgaddplane.h"
 #include "dlgfindplanes.h"
 
+#include "datamanager.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -16,13 +18,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_AddPlaneBtn_clicked()
 {
     DlgAddPlane dlgAddPlane(this);
-    dlgAddPlane.exec();
+    if(dlgAddPlane.exec() == QDialog::Accepted)
+    {
+        DataManager::GetInstance();
+    }
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_FindPlanesBtn_clicked()
 {
     DlgFindPlanes dlgFindPlanes(this);
     dlgFindPlanes.exec();
