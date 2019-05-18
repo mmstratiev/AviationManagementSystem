@@ -7,7 +7,6 @@ DlgAddPlane::DlgAddPlane(QWidget *parent) :
     ui(new Ui::DlgAddPlane)
 {
     ui->setupUi(this);
-    ui->PlaneClassesCombo->addItem("New class...");
 }
 
 DlgAddPlane::~DlgAddPlane()
@@ -15,13 +14,12 @@ DlgAddPlane::~DlgAddPlane()
     delete ui;
 }
 
-void DlgAddPlane::on_PlaneClassesCombo_currentIndexChanged(int index)
+void DlgAddPlane::on_NewClassBtn_clicked()
 {
-    if(index == ui->PlaneClassesCombo->count() - 1)
+    DlgCreatePlaneClass dlgCreatePlaneClass(this);
+    if(dlgCreatePlaneClass.exec() == QDialog::Accepted)
     {
-        DlgCreatePlaneClass dlgCreatePlaneClass(this);
-        if(dlgCreatePlaneClass.exec() == QDialog::Accepted)
-        {
-        }
+        ui->PlaneClassesCombo->insertItem(0, dlgCreatePlaneClass.GetPlaneClassObj()->getName());
+        ui->PlaneClassesCombo->setCurrentIndex(0);
     }
 }

@@ -16,7 +16,7 @@ public:
     ~DlgAddPlane();
 
 private slots:
-    void on_PlaneClassesCombo_currentIndexChanged(int index);
+    void on_NewClassBtn_clicked();
 
 private:
     Ui::DlgAddPlane *ui;

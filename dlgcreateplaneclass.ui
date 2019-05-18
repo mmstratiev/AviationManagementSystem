@@ -39,14 +39,24 @@
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="0">
-     <widget class="QLabel" name="label_2">
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
       <property name="text">
-       <string>Model:</string>
+       <string>Number of seats:</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Minimum lenght of track(m):</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="MakerEdit"/>
+    </item>
+    <item row="1" column="0">
      <widget class="QLabel" name="label">
       <property name="text">
        <string>Maker:</string>
@@ -54,31 +64,14 @@
      </widget>
     </item>
     <item row="2" column="0">
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>Number of seats:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Minimum lenght of track(m):</string>
+       <string>Model:</string>
       </property>
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QSpinBox" name="spinBox">
-      <property name="minimum">
-       <number>100</number>
-      </property>
-      <property name="maximum">
-       <number>999999999</number>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QSpinBox" name="spinBox_2">
+     <widget class="QSpinBox" name="SeatsSpinBox">
       <property name="minimum">
        <number>0</number>
       </property>
@@ -87,11 +80,28 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="lineEdit"/>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="ModelEdit"/>
+    </item>
+    <item row="4" column="1">
+     <widget class="QSpinBox" name="TrackLengthSpinBox">
+      <property name="minimum">
+       <number>100</number>
+      </property>
+      <property name="maximum">
+       <number>999999999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Class name:</string>
+      </property>
+     </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="lineEdit_2"/>
+     <widget class="QLineEdit" name="ClassNameEdit"/>
     </item>
    </layout>
   </widget>

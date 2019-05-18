@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DlgAddPlane</class>
- <widget class="QDialog" name="DlgAddPlane">
+ <class>DlgFindPlanes</class>
+ <widget class="QDialog" name="DlgFindPlanes">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -26,10 +26,10 @@
     <enum>Qt::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::Close</set>
    </property>
   </widget>
-  <widget class="QWidget" name="gridLayoutWidget">
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -38,54 +38,30 @@
      <height>221</height>
     </rect>
    </property>
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Enter plane ID:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Select plane class:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="PlaneIDEdit">
-      <property name="inputMethodHints">
-       <set>Qt::ImhDigitsOnly</set>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QComboBox" name="PlaneClassesCombo">
-        <property name="editable">
-         <bool>false</bool>
-        </property>
-        <property name="currentText">
-         <string comment="0" extracomment="0"/>
-        </property>
-        <property name="currentIndex">
-         <number>-1</number>
-        </property>
-        <property name="insertPolicy">
-         <enum>QComboBox::InsertAtTop</enum>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Destination:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="NewClassBtn">
+       <widget class="QComboBox" name="comboBox"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
         <property name="text">
-         <string>New class...</string>
+         <string>New destination...</string>
         </property>
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QTableView" name="tableView"/>
     </item>
    </layout>
   </widget>
@@ -95,7 +71,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>DlgAddPlane</receiver>
+   <receiver>DlgFindPlanes</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -111,7 +87,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>DlgAddPlane</receiver>
+   <receiver>DlgFindPlanes</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

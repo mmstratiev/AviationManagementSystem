@@ -25,7 +25,7 @@
     <item alignment="Qt::AlignHCenter">
      <widget class="QPushButton" name="pushButton_2">
       <property name="text">
-       <string>Find plane</string>
+       <string>Find planes</string>
       </property>
      </widget>
     </item>
