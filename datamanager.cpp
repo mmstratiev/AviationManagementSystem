@@ -1,8 +1,12 @@
 #include "datamanager.h"
 
+#include <QFile>
 #include <QMap>
 #include <QVector>
 #include <QSharedPointer>
+#include <QDebug>
+
+#include "plane.h"
 
 QMap<QString, QSharedPointer<Plane>> DataManager::Planes;
 QMap<QString, QSharedPointer<PlaneClass>> DataManager::PlaneClasses;
@@ -111,4 +115,71 @@ QVector<QSharedPointer<const Destination> > DataManager::GetAllDestinations()
     }
 
     return result;
+}
+
+void DataManager::Save(QString filePath)
+{
+    QFile saveFile(filePath);
+    if(saveFile.open(QIODevice::WriteOnly))
+    {
+        QDataStream out(&saveFile);
+
+        out << PlaneClasses.count();
+        for(auto const &it : PlaneClasses)
+        {
+            out << *it;
+        }
+
+        out << Planes.count();
+        for(auto const &it : Planes)
+        {
+            out << *it;
+        }
+
+        out << Destinations.count();
+        for(auto const &it : Destinations)
+        {
+            out << *it;
+        }
+    }
+
+    saveFile.close();
+}
+
+void DataManager::Load(QString filePath)
+{
+    QFile saveFile(filePath);
+    if(saveFile.open(QIODevice::ReadOnly))
+    {
+        QDataStream in(&saveFile);
+
+        int planeClassCount = 0;
+        in >> planeClassCount;
+        for(int i = 0; i < planeClassCount; i++)
+        {
+            QSharedPointer<PlaneClass> planeClass(new PlaneClass());
+            in >> *planeClass;
+            DataManager::AddPlaneClass(planeClass);
+        }
+
+        int planeCount = 0;
+        in >> planeCount;
+        for(int i = 0; i < planeCount; i++)
+        {
+            QSharedPointer<Plane> plane(new Plane());
+            in >> *plane;
+            DataManager::AddPlane(plane);
+        }
+
+        int destinationCount = 0;
+        in >> destinationCount;
+        for(int i = 0; i < destinationCount; i++)
+        {
+            QSharedPointer<Destination> destination(new Destination());
+            in >> *destination;
+            DataManager::AddDestination(destination);
+        }
+    }
+
+    saveFile.close();
 }

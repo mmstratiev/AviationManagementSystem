@@ -24,3 +24,15 @@ void Plane::setPlaneType(const QSharedPointer<const PlaneClass> &value)
 {
     PlaneType = value;
 }
+
+//QDataStream &operator>>(QDataStream &in, Plane &p)
+//{
+//    QString className;
+//    p = Plane();
+
+//    in >> p.ID >> className;
+
+//    p.PlaneType = DataManager::GetPlaneClass(className);
+
+//    return in;
+//}

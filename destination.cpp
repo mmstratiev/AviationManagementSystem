@@ -24,3 +24,14 @@ void Destination::setDistance(const qint32 &value)
 {
     Distance = value;
 }
+
+qint32 Destination::getTrackLength() const
+{
+    return TrackLength;
+}
+
+void Destination::setTrackLength(const qint32 &value)
+{
+    TrackLength = value;
+}
+

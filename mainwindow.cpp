@@ -40,14 +40,23 @@ void MainWindow::on_LoadSettingsBtn_clicked()
 {
     QString fileName = QFileDialog::getOpenFileName(this,
                                                     tr("Select settings file"),
-                                                    "/home/"/*, tr("Image Files (*.png *.jpg *.bmp)")*/);
+                                                    "/home/",
+                                                    tr("Text files (*.txt)"));
 
-
+    if(!fileName.isEmpty())
+    {
+        DataManager::Load(fileName);
+    }
 }
 
 void MainWindow::on_SaveSettingsBtn_clicked()
 {
     QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
-                               "/home/untitled.png",
-                               tr("Images (*.png *.xpm *.jpg)"));
+                               "/home/untitled.txt",
+                               tr("Text files (*.txt)"));
+
+    if(!fileName.isEmpty())
+    {
+        DataManager::Save(fileName);
+    }
 }

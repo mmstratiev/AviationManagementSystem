@@ -2,6 +2,7 @@
 #define PLANECLASS_H
 
 #include <QString>
+#include <QDataStream>
 
 class PlaneClass
 {
@@ -22,6 +23,21 @@ public:
 
     QString getName() const;
     void setName(const QString &value);
+
+    // ostream, << overloading
+    friend QDataStream &operator<<(QDataStream &out, const PlaneClass &p)
+    {
+        out << p.Name << p.Maker << p.Model << p.SeatCount << p.TrackLength;
+        return out;
+    }
+
+    // istream, >> overloading
+    friend QDataStream &operator>>(QDataStream &in, PlaneClass &p)
+    {
+        p = PlaneClass();
+        in >> p.Name >> p.Maker >> p.Model >> p.SeatCount >> p.TrackLength;
+        return in;
+    }
 
 private:
     QString Name;

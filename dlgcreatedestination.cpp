@@ -44,6 +44,7 @@ QSharedPointer<Destination> DlgCreateDestination::GetDestinationObj()
     QSharedPointer<Destination> result(new Destination());
 
     result->setName(ui->DestinationNameEdit->text());
+    result->setTrackLength(ui->TrackLengthEdit->value());
     result->setDistance(ui->DistanceSpinBox->value());
 
     return result;

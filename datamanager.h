@@ -1,10 +1,10 @@
 #ifndef DATAMANAGER_H
 #define DATAMANAGER_H
 
-#include "plane.h"
 #include "planeclass.h"
 #include "destination.h"
 
+class Plane;
 class DataManager
 {
 public:
@@ -24,6 +24,9 @@ public:
     static QVector<QSharedPointer<const Plane>> GetAllPlanes();
     static QVector<QSharedPointer<const PlaneClass>> GetAllPlaneClasses();
     static QVector<QSharedPointer<const Destination>> GetAllDestinations();
+
+    static void Save(QString filePath);
+    static void Load(QString filePath);
 
 private:
     DataManager();
