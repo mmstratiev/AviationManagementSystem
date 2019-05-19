@@ -17,6 +17,8 @@ public:
     explicit DlgAddPlane(QWidget *parent = nullptr);
     ~DlgAddPlane();
 
+    virtual void accept() override;
+
     QSharedPointer<Plane> GetPlaneObj();
 private slots:
     void on_NewClassBtn_clicked();

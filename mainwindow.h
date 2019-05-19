@@ -20,6 +20,10 @@ private slots:
 
     void on_FindPlanesBtn_clicked();
 
+    void on_LoadSettingsBtn_clicked();
+
+    void on_SaveSettingsBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QFileDialog>
+
 #include "dlgaddplane.h"
 #include "dlgfindplanes.h"
 
@@ -23,7 +25,7 @@ void MainWindow::on_AddPlaneBtn_clicked()
     DlgAddPlane dlgAddPlane(this);
     if(dlgAddPlane.exec() == QDialog::Accepted)
     {
-        DataManager::GetInstance();
+        DataManager::AddPlane(dlgAddPlane.GetPlaneObj());
     }
 }
 
@@ -31,4 +33,21 @@ void MainWindow::on_FindPlanesBtn_clicked()
 {
     DlgFindPlanes dlgFindPlanes(this);
     dlgFindPlanes.exec();
+}
+
+
+void MainWindow::on_LoadSettingsBtn_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this,
+                                                    tr("Select settings file"),
+                                                    "/home/"/*, tr("Image Files (*.png *.jpg *.bmp)")*/);
+
+
+}
+
+void MainWindow::on_SaveSettingsBtn_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+                               "/home/untitled.png",
+                               tr("Images (*.png *.xpm *.jpg)"));
 }

@@ -2,6 +2,8 @@
 #include "ui_dlgcreateplaneclass.h"
 #include <QMessageBox>
 
+#include "datamanager.h"
+
 DlgCreatePlaneClass::DlgCreatePlaneClass(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DlgCreatePlaneClass)
@@ -21,6 +23,14 @@ void DlgCreatePlaneClass::accept()
         QMessageBox msgBox;
         msgBox.setText("Class name cannot be empty!");
         msgBox.exec();
+    }
+    else if(DataManager::GetPlaneClass(ui->ClassNameEdit->text()))
+    {
+        QMessageBox::StandardButton reply = QMessageBox::question(this, "Message", "A plane class with that name already exists! Do you want to overwrite it?");
+        if(reply == QMessageBox::Yes)
+        {
+            QDialog::accept();
+        }
     }
     else
     {

@@ -30,14 +30,14 @@
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="LoadSettingsBtn">
       <property name="text">
        <string>Load settings</string>
       </property>
      </widget>
     </item>
     <item alignment="Qt::AlignHCenter">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="SaveSettingsBtn">
       <property name="text">
        <string>Save settings</string>
       </property>
