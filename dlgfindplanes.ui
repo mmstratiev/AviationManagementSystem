@@ -35,10 +35,13 @@
      <x>10</x>
      <y>10</y>
      <width>381</width>
-     <height>221</height>
+     <height>222</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QListWidget" name="planesList"/>
+    </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
@@ -59,9 +62,6 @@
        </widget>
       </item>
      </layout>
-    </item>
-    <item>
-     <widget class="QTableView" name="tableView"/>
     </item>
    </layout>
   </widget>

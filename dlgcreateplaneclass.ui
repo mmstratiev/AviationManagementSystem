@@ -46,27 +46,10 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="label_4">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_5">
       <property name="text">
-       <string>Minimum lenght of track(m):</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="MakerEdit"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Maker:</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Model:</string>
+       <string>Class name:</string>
       </property>
      </widget>
     </item>
@@ -76,12 +59,43 @@
        <number>0</number>
       </property>
       <property name="maximum">
-       <number>999999999</number>
+       <number>1000</number>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Fuel consumption(L/km):</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="MakerEdit"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Model:</string>
       </property>
      </widget>
     </item>
     <item row="2" column="1">
      <widget class="QLineEdit" name="ModelEdit"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Maker:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Minimum lenght of track(m):</string>
+      </property>
+     </widget>
     </item>
     <item row="4" column="1">
      <widget class="QSpinBox" name="TrackLengthSpinBox">
@@ -89,19 +103,33 @@
        <number>100</number>
       </property>
       <property name="maximum">
-       <number>999999999</number>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Class name:</string>
+       <number>100000</number>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
      <widget class="QLineEdit" name="ClassNameEdit"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Fuel capacity(L):</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QDoubleSpinBox" name="consumptionSpinBox">
+      <property name="maximum">
+       <double>50.000000000000000</double>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QDoubleSpinBox" name="capacitySpinBox">
+      <property name="maximum">
+       <double>500000.000000000000000</double>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

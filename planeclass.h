@@ -4,6 +4,8 @@
 #include <QString>
 #include <QDataStream>
 
+class Destination;
+
 class PlaneClass
 {
 public:
@@ -24,10 +26,18 @@ public:
     QString getName() const;
     void setName(const QString &value);
 
+    qreal getFuelConsumption() const;
+    void setFuelConsumption(const qreal &value);
+
+    qreal getFuelCapacity() const;
+    void setFuelCapacity(const qreal &value);
+
+    bool CanReachDestination(QSharedPointer<const Destination> destination) const;
+
     // ostream, << overloading
     friend QDataStream &operator<<(QDataStream &out, const PlaneClass &p)
     {
-        out << p.Name << p.Maker << p.Model << p.SeatCount << p.TrackLength;
+        out << p.Name << p.Maker << p.Model << p.SeatCount << p.TrackLength << p.FuelConsumption << p.FuelCapacity;
         return out;
     }
 
@@ -35,7 +45,7 @@ public:
     friend QDataStream &operator>>(QDataStream &in, PlaneClass &p)
     {
         p = PlaneClass();
-        in >> p.Name >> p.Maker >> p.Model >> p.SeatCount >> p.TrackLength;
+        in >> p.Name >> p.Maker >> p.Model >> p.SeatCount >> p.TrackLength >> p.FuelConsumption >> p.FuelCapacity;
         return in;
     }
 
@@ -45,6 +55,8 @@ private:
     QString Model;
     qint32  SeatCount;
     qint32  TrackLength;
+    qreal   FuelConsumption;
+    qreal   FuelCapacity;
 };
 
 #endif // PLANECLASS_H

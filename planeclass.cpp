@@ -1,4 +1,7 @@
 #include "planeclass.h"
+#include <QSharedPointer>
+
+#include "destination.h"
 
 PlaneClass::PlaneClass()
 {
@@ -53,4 +56,30 @@ QString PlaneClass::getName() const
 void PlaneClass::setName(const QString &value)
 {
     Name = value;
+}
+
+qreal PlaneClass::getFuelConsumption() const
+{
+    return FuelConsumption;
+}
+
+void PlaneClass::setFuelConsumption(const qreal &value)
+{
+    FuelConsumption = value;
+}
+
+qreal PlaneClass::getFuelCapacity() const
+{
+    return FuelCapacity;
+}
+
+void PlaneClass::setFuelCapacity(const qreal &value)
+{
+    FuelCapacity = value;
+}
+
+bool PlaneClass::CanReachDestination(QSharedPointer<const Destination> destination) const
+{
+    return      (destination->getTrackLength() >= this->getTrackLenght())
+            ||  ((destination->getDistance() * this->getFuelConsumption()) <= this->getFuelCapacity());
 }

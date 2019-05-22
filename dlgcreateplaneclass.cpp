@@ -47,6 +47,8 @@ QSharedPointer<PlaneClass> DlgCreatePlaneClass::GetPlaneClassObj()
     result->setMaker(ui->ModelEdit->text());
     result->setSeatCount(ui->SeatsSpinBox->value());
     result->setTrackLength(ui->TrackLengthSpinBox->value());
+    result->setFuelConsumption(ui->consumptionSpinBox->value());
+    result->setFuelCapacity(ui->capacitySpinBox->value());
 
     return result;
 }
